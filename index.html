@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiniCraft — HTML5 Minecraft Clone</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #000; font-family: monospace; }
+  #game { display: block; width: 100vw; height: 100vh; cursor: crosshair; }
+  #crosshair { position: fixed; left: 50%; top: 50%; width: 20px; height: 20px; transform: translate(-50%, -50%); pointer-events: none; }
+  #crosshair::before, #crosshair::after { content: ""; position: absolute; background: rgba(255,255,255,0.9); }
+  #crosshair::before { left: 9px; top: 0; width: 2px; height: 20px; }
+  #crosshair::after { left: 0; top: 9px; width: 20px; height: 2px; }
+  #hotbar { position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; pointer-events: none; }
+  .slot { width: 44px; height: 44px; border: 3px solid rgba(0,0,0,0.55); box-sizing: border-box; color: #fff; font-size: 12px; text-shadow: 1px 1px 0 #000; display: flex; align-items: flex-start; padding: 2px; }
+  .slot.sel { border-color: #fff; }
+  #overlay { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.55); color: #fff; text-align: center; z-index: 10; cursor: pointer; }
+  #overlay h1 { margin: 0 0 12px; font-size: 34px; letter-spacing: 2px; }
+  #overlay p { margin: 4px 0; font-size: 14px; }
+  #hint { position: fixed; top: 10px; left: 10px; color: #fff; text-shadow: 1px 1px 0 #000; font-size: 12px; pointer-events: none; white-space: pre; }
+</style>
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="crosshair"></div>
+<div id="hotbar"></div>
+<div id="hint">WASD move · Space jump · Shift sprint
+Mouse look · LMB break · RMB place · 1-8 select block</div>
+<div id="overlay">
+  <h1>MINICRAFT</h1>
+  <p><b>Click to play</b></p>
+  <p>WASD move · mouse look · Space jump · Shift sprint</p>
+  <p>Left click: break block · Right click: place block · 1-8: select block</p>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
